@@ -30,6 +30,7 @@ public class delete_nodell {
 		
 		if(temp != null && temp.data == key){
 			head = temp.next;
+			return;
 		}
 		while(temp != null && temp.data != key){
 			prev = temp;
@@ -52,7 +53,7 @@ public class delete_nodell {
 		System.out.println("the linked list is");
 		list.printlist();
 		
-		list.delete(6);
+		list.delete(9);
 		System.out.println("the list after the deletion is ");
 		list.printlist();
 		
