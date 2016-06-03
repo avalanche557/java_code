@@ -22,6 +22,16 @@ public class insert_last {
 			last.next = new_node;
 			return;
 	}
+	public void atpos(node prev, int new_data) {
+		if(prev == null){
+			System.out.println("the node does not exixt");
+			return;
+		}
+		node new_node = new node(new_data);
+		
+		new_node.next = prev.next;
+		prev.next = new_node;
+	}
 	
 	public void printlist() {
 		node n = head;
@@ -35,6 +45,10 @@ public class insert_last {
 		
 		list.append(5);
 		list.append(6);
+		list.append(9);
+		list.append(1);
+		list.append(2);
+		list.atpos(list.head,8);
 		list.append(7);
 		
 		System.out.println("the linked list is");
