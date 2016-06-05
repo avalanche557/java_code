@@ -1,13 +1,12 @@
 import java.util.Scanner;
 
-public class swap_node {
+public class node_swap1 {
 	node head;
-	
-	class node{
+	class node {
 		int data;
 		node next;
-		node(int d){
-			data = d;
+		node (int d){
+			data =d;
 			next = null;
 		}
 	}
@@ -16,26 +15,31 @@ public class swap_node {
 		
 		new_node.next = head;
 		head = new_node;
-		
 	}
 	public void printlist() {
 		node n = head;
-		while(n != null){
+		
+		while( n != null){
 			System.out.println(n.data +" ");
 			n= n.next;
 		}
 	}
+	
 	public void swap(int x, int y) {
-		node curx = head,prex = null;
-		node cury = head, prey = null;
 		if(x == y){
+			return;
+		}
+		node curx = head, prex = null;
+		node cury = head, prey = null;
+		
+		if(curx == null && cury == null){
 			return;
 		}
 		while(curx != null && curx.data != x){
 			prex = curx;
 			curx = curx.next;
 		}
-		while (cury != null && cury.data != y){
+		while(cury != null && cury.data != y){
 			prey = cury;
 			cury = cury.next;
 		}
@@ -45,18 +49,19 @@ public class swap_node {
 		else{
 			head = cury;
 		}
+		
 		if(prey != null){
 			prey.next = curx;
 		}
-		else {
+		else{
 			head = curx;
 		}
-		 node temp = curx.next;
-		 curx.next = cury.next;
-		 cury.next = temp;
+		node temp = curx.next;
+		curx.next = cury.next;
+		cury.next = temp;
 	}
 	public static void main(String[] args) {
-		swap_node list = new swap_node();
+		node_swap1 list = new node_swap1();
 		
 		list.push(5);
 		list.push(6);
