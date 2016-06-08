@@ -1,81 +1,125 @@
 import java.util.Random;
 
 public class MergSort {
-	static node head;
-	
-	static class node{
-		int data;
-		node next;
-		node (int d){
-			data =d;
-			next = null;
+	private Node start;
+    private Node last;
+ 
+    private class Node{
+ 
+      int data;
+      Node next;
+ 
+      Node(int data){
+       this.data=data;
+      }
+ 
+    }	
+ 
+    public MergSort(){
+ 
+      start=null;
+      last=null;
+ 
+    }
+ 
+    public Node getHead(){
+      return start;
+ 
+    }
+ 
+    public void add(int data){
+ 
+	      Node oldLast=last;
+	      last=new Node(data);
+ 
+	      if(start==null){
+	       start=last;
+	      }
+	      else{
+	       oldLast.next=last;
+	      }
+ 
+    }
+ 
+	public Node mergeSort(Node head){
+ 
+		if(head==null || head.next==null){
+	      return head;
+	 	}
+	 	Node first=head;
+	 	Node middle=findMiddle(head);
+	    Node second=middle.next;
+	    middle.next=null;
+ 
+	 	Node left=mergeSort(first);
+	 	Node right=mergeSort(second);
+ 
+	    Node result=sortedMerge(left,right);
+	    return result;
+ 
+	 }
+ 
+	public Node findMiddle(Node head){
+ 
+	    Node slow=head;
+	    Node fast=head;
+ 
+		if(head==null){
+	       return null;
 		}
-	}
-	public void push(int new_data) {
-		node new_node = new node(new_data);
-		
-		new_node.next = head;
-		head =new_node;
-	}
-
-	public void printlist() {
-		node n = head;
-		while(n != null){
-			System.out.println(n.data +" ");
-			n= n.next;
+ 
+		while(fast !=null && fast.next!=null && fast.next.next!=null){
+		 slow=slow.next;
+		 fast=fast.next;
 		}
-	}
-	public static node getmid(node head){
-		node fast = head;
-		node slow = head;
-		while(slow.next != null && fast.next.next != null){
-			fast= fast.next.next;
-			slow = slow.next;
-			
-		}
+ 
 		return slow;
-
+ 
+ 
 	}
-	public node merg(node head) {
-		if(head == null || head.next == null){
-			return head;
-		}
-		node midnode = getmid(head);
-		node secondlist = midnode.next;
-		midnode.next = null;
-		return mergsort(merg(head), merg(secondlist));
+ 
+	public Node sortedMerge(Node a, Node b){
+ 
+	   Node result =null;
+ 
+	   if(a==null){
+	     return b; 
+	   }
+	   else if(b==null){
+	     return a;
+	   }	
+ 
+	   else if(b.data <a.data){
+	     result=b;
+	     result.next=sortedMerge(a,b.next);
+	   }
+	   else{
+	     result=a; 
+	     result.next=sortedMerge(a.next,b);
+	   }
+ 
+	   return result;
+ 
 	}
-	
-	public static node mergsort(node h1, node h2) {
-		node result;
-		if(h1 == null){
-			return h2;
-		}
-		if(h2 == null){
-			return h1;
-		}
-		if(h1.data <= h2.data){
-			result = h1;
-			result.next = mergsort(h1.next, h2);
-		}
-		else {
-			result = h2;
-			result.next = mergsort(h1, h2.next);
-		}
-		return result;
-	}
-	
-	public static void main(String[] args) {
-		MergSort list = new MergSort();
-		
+ 
+	public void display(Node head){
+ 
+	       Node current=head;
+	       while(current !=null){
+	         System.out.println(current.data);
+	         current=current.next;
+	       }     
+ 
+    }
+ 
+	public static void main(String args[]){
+		MergSort msort=new MergSort();
 		for (int i = 0; i < 10; i++) {
-			list.push(new Random().nextInt(50));
+			msort.add(new Random().nextInt(50));
 		}
-		System.out.println("unsorted list is");
-		list.printlist();
-		
-		list.merg(head);
-		System.out.println("sorted list is");
-		list.printlist();
+ 
+		Node sortedResult=msort.mergeSort(msort.getHead());;
+		msort.display(sortedResult);
+ 
 	}
 }
