@@ -102,9 +102,9 @@ public class MergSort {
  
 	}
  
-	public void display(Node head){
+	public void display(){
  
-	       Node current=head;
+	       Node current=getHead();
 	       while(current !=null){
 	         System.out.println(current.data);
 	         current=current.next;
@@ -118,8 +118,8 @@ public class MergSort {
 			msort.add(new Random().nextInt(50));
 		}
  
-		Node sortedResult=msort.mergeSort(msort.getHead());;
-		msort.display(sortedResult);
+		msort.mergeSort(msort.getHead());;
+		msort.display();
  
 	}
 }
