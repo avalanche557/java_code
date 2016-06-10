@@ -40,10 +40,10 @@ public class DeleteCircularList {
 		}
 		if(pos == 1){
 			while(temp.next != head){
-				temp = temp.next;
+				temp.next = temp.next.next;
 			}	
 		}
-		temp.next= temp.next.next;
+		
 		return;
 	}
 	public static void main(String args[]) {
