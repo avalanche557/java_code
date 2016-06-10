@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class HalfCircular {
 	static node head;
@@ -43,7 +44,7 @@ public class HalfCircular {
 			fast = fast.next;
 		}
 		head1 = head;
-			head2 = slow.next;
+		head2 = slow.next;
 		fast.next = slow.next;
 		
 		slow.next = head;
@@ -52,14 +53,9 @@ public class HalfCircular {
 	public static void main(String args[]) {
 		HalfCircular list = new HalfCircular();
 		
-		list.push(2);
-		list.push(4);
-		list.push(3);
-		list.push(5);
-		list.push(6);
-		list.push(7);
-		list.push(8);
-		list.push(9);
+		for(int i=0; i < 10; i++){
+			list.push(new Random().nextInt(10));
+		}
 		
 		System.out.println("the linked list is");
 		list.printlist(head);
