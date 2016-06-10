@@ -29,6 +29,7 @@ public class CircularLinkedlist_end {
 			System.out.println(n.data +" ");
 			n = n.next;
 		}
+		System.out.println(n.data +" ");
 	}
 	 public static void main(String args[]) {
 		CircularLinkedlist_end list = new CircularLinkedlist_end();
