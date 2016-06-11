@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class DeleteCircular {
-	node head;
+	static node head;
 	class node {
 		int data;
 		node next;
@@ -19,20 +19,26 @@ public class DeleteCircular {
 			new_node.prev = null;
 		
 		new_node.next = head;
-		new_node.prev = new_node;
+		if(head != null)
+			new_node.prev = new_node;
 		
 		head = new_node;
 	}
-	public void delete(int num) {
-		node temp = head;
-		while(temp != null){
-			if(temp.data == num){
-				temp.next.prev = temp.prev;
-				temp.prev.next = temp.next;
-			}
-			temp = temp.next;
+	public void delete(node head_ref ,node del) {
+		if(head == null && del == null){
 			return;
 		}
+		if(head == del){
+			head = del.next;
+		}
+		if(del.next != null){
+			del.next.prev = del.prev;
+		}
+		if(del.prev != null){
+			del.prev.next = del.next; 
+		}
+		
+		return;
 	}
 	public void printlist() {
 		node n = head;
@@ -44,15 +50,16 @@ public class DeleteCircular {
 	public static void main(String args[]) {
 			DeleteCircular list = new DeleteCircular();
 			
-			for(int i =0; i < 10; i++){
-				list.push(new Random().nextInt(10));
-			}
+			list.push(6);
+			list.push(7);
+			list.push(8);
+			list.push(9);
+			list.push(10);
+			
 			System.out.println("the double linked list is");
 			list.printlist();
 			
-			System.out.println("enter the number you want to delete");
-			int num = new Scanner(System.in).nextInt();
-			list.delete(num);
+			list.delete(head, list.head.next.next);
 			System.out.println("list after the deleteion");
 			list.printlist();
 	}
