@@ -20,7 +20,7 @@ public class DeleteCircular {
 		
 		new_node.next = head;
 		if(head != null)
-			new_node.prev = new_node;
+			head.prev = new_node;
 		
 		head = new_node;
 	}
@@ -59,7 +59,7 @@ public class DeleteCircular {
 			System.out.println("the double linked list is");
 			list.printlist();
 			
-			list.delete(head, head);
+			list.delete(head, head.next);
 			System.out.println("list after the deleteion");
 			list.printlist();
 	}
