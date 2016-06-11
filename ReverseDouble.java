@@ -23,6 +23,26 @@ public class ReverseDouble {
 		}
 		head = new_node;
 	}
+	private void printlist() {
+		node n = head;
+		while(n != null){
+			System.out.println(n.data +" ");
+			n = n.next;
+		}
+	}
+	public void rev() {
+		node curr = head;
+		node temp = null;
+		while(curr != null){
+			temp = curr.prev;
+			curr.prev = curr.next;
+			curr.next = temp;
+			curr = curr.prev;
+		}
+		if(temp != null){
+			head = temp.prev;
+		}
+ 	}
 	public static void main(String args[]) {
 		ReverseDouble list  = new ReverseDouble();
 		
