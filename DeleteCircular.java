@@ -59,7 +59,7 @@ public class DeleteCircular {
 			System.out.println("the double linked list is");
 			list.printlist();
 			
-			list.delete(head, list.head.next.next);
+			list.delete(head, head);
 			System.out.println("list after the deleteion");
 			list.printlist();
 	}
