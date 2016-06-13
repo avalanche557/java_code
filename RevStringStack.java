@@ -4,6 +4,7 @@ public class RevStringStack {
 	private String input;
 	private String output = "";
 	private stack thestack;
+	private static Scanner scanner;
 	class stack{
 		int size;
 		char[] array;
@@ -29,7 +30,8 @@ public class RevStringStack {
 	}
 	public static void main(String args[]) {
 		System.out.println("enter the string");
-		String input = new Scanner(System.in).next();
+		scanner = new Scanner(System.in);
+		String input = scanner.next();
 		String output;
 		
 		RevStringStack list = new RevStringStack(input);
