@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class RevStringStack {
 	private String input;
@@ -27,11 +28,13 @@ public class RevStringStack {
 		}
 	}
 	public static void main(String args[]) {
-		String input = "abhinav";
+		System.out.println("enter the string");
+		String input = new Scanner(System.in).next();
 		String output;
 		
 		RevStringStack list = new RevStringStack(input);
 		output = list.reverse();
+		System.out.println("the string is " + input);
 		System.out.println("the reverse of the string is " + output);
 		
 	}
