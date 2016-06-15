@@ -1,13 +1,16 @@
-import java.util.Stack;
+
+import java.util.*;
 
 public class ReversestackRec {
-	public static void main (String[] args) {
+	
+
+public static void main (String[] args) {
 	    
-		Stack s=new Stack();
-		s.push(4);
-		s.push(3);
-		s.push(2);
-		s.push(1);
+		Stack<Character> s=new Stack<Character>();
+		String input = "abhinav";
+		for (int i = 0; i < input.length(); i++) {
+			s.push(input.charAt(i));
+		}
 		System.out.println("Input is 1->2->3->4");
 		reverse(s);
 		System.out.println("Output is");
@@ -16,26 +19,26 @@ public class ReversestackRec {
 		
 		
 	}
-	static void reverse(Stack s)
+	static void reverse(Stack<Character> s)
 	{       
-		int pop = 0;
+		 char pop = 0;
 		if(!s.isEmpty())
 	    {		
-	       pop=Integer.parseInt(""+s.pop());
+	       pop=(char) Integer.parseInt(""+s.pop());
 	               reverse(s);
 	   
 			insert(s,pop);
 		}
 	}
-	static void insert(Stack s,int p)
+	static void insert(Stack<Character> s,int p)
 	{
 	    if (s.isEmpty())
-	            s.push(p);
+	            s.push((char) p);
 	    else
 	    {
 	        int temp=Integer.parseInt(""+s.pop());
 	        insert(s,p);
-	        s.push(temp);
+	        s.push((char) temp);
 	    }
 	}
 	
