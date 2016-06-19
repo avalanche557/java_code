@@ -18,7 +18,7 @@ public class QueueList {
 	}
 	public void enqueue(int new_data) {
 		node new_node = new node(new_data);
-		if(!isEmpty()){
+		if(isEmpty()){
 			 rare = front = new_node;
 		}
 		else{
