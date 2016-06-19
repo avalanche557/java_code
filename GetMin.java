@@ -19,11 +19,11 @@ public class GetMin {
 			aux[top+1]= item;
 		}
 		else{
-			if(top<a.length && item < aux[top]){
+			if( item < aux[top]){
 				a[top+1]= item;
 				aux[top+1] = item;
 			}
-			else if(top<a.length && item >= aux[top]){
+			else if(item >= aux[top]){
 				aux[top+1] = aux[top];
 				a[top+1] = item;
 				
