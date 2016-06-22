@@ -29,7 +29,7 @@ public class TreeTraversal {
 		
 		printInOrder(root.left);
 		
-		printInOrder(root.left);
+		printInOrder(root.right);
 	}
 	public void printpostorder(node1 root) {
 		if(root == null){
@@ -42,10 +42,6 @@ public class TreeTraversal {
 		System.out.println(root.data +" ");
 	}
 	
-	public TreeTraversal() {
-		// TODO Auto-generated constructor stub
-		root = null;
-	}
 	public static void main(String args[]) {
 		TreeTraversal tree = new TreeTraversal();
 		
