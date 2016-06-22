@@ -20,6 +20,7 @@ public class QueueArray {
 	public int dequeue() {
 		return ar[front++];
 	}
+	
 	public static void main(String args[]) {
 		QueueArray qu = new QueueArray(10);
 		for(int i =0; i< 10;i++){

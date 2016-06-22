@@ -1,45 +1,32 @@
-class node {
+import java.util.*;
+class node{
 	int data;
-	node left;
 	node right;
+	node left;
 	node(int d){
-		data = d;
-		left  =null;
+		data =d;
 		right = null;
-	}
-}
-class queue{
-	int[] key;
-	int size;
-	int front;
-	int rare;
-	queue(int s){
-		size = s;
-		key = new int[size];
-		front = 0;
-		rare = -1;
-	}
-	public void enquue(int new_data ) {
-		key[++rare] = new_data;
-	}
-	public int dequeue() {
-		return key[front++];
+		left = null;
 	}
 }
 public class LevelOrder {
 	static node root;
-	public LevelOrder() {
-		// TODO Auto-generated constructor stub
-		root = null;
-	}
+	
+	
 	public void printlevel(node root) {
-		queue qu = new queue(500);
-		qu.enquue(root.data);
-		System.out.println(qu.dequeue());
-		qu.enquue(root.left.data);
-		qu.enquue(root.right.data);
-		System.out.println(qu.dequeue());
-		System.out.println(qu.dequeue());
+		Queue<node> queue = new LinkedList<node>();
+		queue.add(root);
+		while(!queue.isEmpty()){
+			node temp = queue.poll();
+			System.out.println(temp.data);
+			
+			if(temp.left != null){
+				queue.add(temp.left);
+			}
+			if(temp.right != null){
+				queue.add(temp.right);
+			}
+		}
 		
 	}
 	public static void main(String args[]) {
