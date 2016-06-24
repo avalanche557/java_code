@@ -59,7 +59,7 @@ public class CreateBTree {
         int len = in.length;
         
         node4 mynode4 = tree.makeTree(in , pre, 0, len-1);
-        System.out.println("the inode4r of the tree is ");
+        System.out.println("the inoder of the tree is ");
         tree.printtree(mynode4);
 	}
 }
