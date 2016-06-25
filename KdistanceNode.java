@@ -20,7 +20,7 @@ public class KdistanceNode {
 		tree.root.left = new node(13);
 		tree.root.right = new node(14);
 		tree.root.left.left = new node(15);
-		tree.root.left.left.right = new node(15);
+		tree.root.left.left.right = new node(17);
 		tree.root.left.right = new node(16);
 		
 		System.out.println("Enter the value of k" );
